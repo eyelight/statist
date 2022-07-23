@@ -23,7 +23,6 @@ import (
 
 type Statist interface {
 	State() (interface{}, time.Time)
-	SetState(interface{}, time.Time)
 	StateString() string
 	Name() string
 }
@@ -66,10 +65,10 @@ func (l Lineup) MusterWithGreeting(g string) string {
 	s := strings.Builder{}
 	s.Grow(1024)
 	s.WriteString(g)
-	s.WriteByte(newLine())
+	s.WriteByte(NewLine())
 	for _, v := range l {
 		s.WriteString(v.StateString())
-		s.WriteByte(newLine())
+		s.WriteByte(NewLine())
 	}
 	return s.String()
 }
@@ -80,7 +79,7 @@ func (l Lineup) Muster() string {
 	s.Grow(1024)
 	for _, v := range l {
 		s.WriteString(v.StateString())
-		s.WriteByte(newLine())
+		s.WriteByte(NewLine())
 	}
 	return s.String()
 }
@@ -90,27 +89,27 @@ func (l Lineup) Muster() string {
 */
 
 // newLine returns a line feed ascii byte
-func newLine() byte {
+func NewLine() byte {
 	return byte(10)
 }
 
 // tab returns a horizontal tab ascii byte
-func tab() byte {
+func Tab() byte {
 	return byte(9)
 }
 
 // btc returns the emoji for the bitcoin logo lol
-func btc() rune {
+func Btc() rune {
 	// return string("\uf15a")
 	return rune('\u20bf')
 }
 
 // checkMark returns the emoji for a check mark
-func checkMark() rune {
+func CheckMark() rune {
 	return rune('\u2713')
 }
 
 // xMark returns the emoji for an 'x' mark
-func xMark() rune {
+func X() rune {
 	return rune('\u2715')
 }
