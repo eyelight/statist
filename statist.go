@@ -18,11 +18,9 @@ package statist
 
 import (
 	"strings"
-	"time"
 )
 
 type Statist interface {
-	State() (interface{}, time.Time)
 	StateString() string
 	Name() string
 }
