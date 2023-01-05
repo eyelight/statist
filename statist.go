@@ -1,17 +1,6 @@
 // package statist provides interface Statist, which entities can implement in order
 // to report their state.
 //
-// When implementing State() and SetState(), the time.Time
-// parameter should be thought of as the time when the state was set.
-//
-// A caller to State() will interpret the output as
-// the returned state 'since' the returned time
-//
-// Additionally, some functions allow creating a Lineup (a slice of Statists),
-// pushing or popping Statists from the registry, and a function Muster which returns
-// a string to be used (and embellished as needed) for reporting the state of
-// all members of a Lineup
-//
 // A use-case for package is to periodically report sensor information on a schedule.
 // By making your sensors Statists, just Enlist them into a Lineup and make them sound off over MQTT.
 package statist
